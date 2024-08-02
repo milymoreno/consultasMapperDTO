@@ -2,13 +2,17 @@ package com.bot.consultas.mapper;
 
 import com.bot.consultas.model.Cliente;
 import com.bot.consultas.modelDTO.ClienteDTO;
+
+
+
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
-//import org.springframework.stereotype.Component;
 
-@Mapper(componentModel = "spring")
+// Asumiendo que ya tienes mappers para EntidadFinanciera y TipoIdentificacion
+@Mapper(componentModel = "spring", uses = {EntidadFinancieraMapper.class, TipoIdentificacionMapper.class})
 public interface ClienteMapper {
+
     ClienteMapper INSTANCE = Mappers.getMapper(ClienteMapper.class);
 
     @Mapping(source = "numId", target = "numeroIdentificacion")
