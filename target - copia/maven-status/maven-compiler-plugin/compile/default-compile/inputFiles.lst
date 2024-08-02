@@ -1,0 +1,14 @@
+C:\BOT\Repositorios\consultas\src\main\java\com\bot\consultas\config\TestDialect.java
+C:\BOT\Repositorios\consultas\src\main\java\com\bot\consultas\ConsultasApplication.java
+C:\BOT\Repositorios\consultas\src\main\java\com\bot\consultas\controller\ClienteController.java
+C:\BOT\Repositorios\consultas\src\main\java\com\bot\consultas\mapper\ClienteMapper.java
+C:\BOT\Repositorios\consultas\src\main\java\com\bot\consultas\model\Cliente.java
+C:\BOT\Repositorios\consultas\src\main\java\com\bot\consultas\model\EntidadFinanciera.java
+C:\BOT\Repositorios\consultas\src\main\java\com\bot\consultas\model\enums\EnumEstadoEntidad.java
+C:\BOT\Repositorios\consultas\src\main\java\com\bot\consultas\model\enums\EnumTipoCliente.java
+C:\BOT\Repositorios\consultas\src\main\java\com\bot\consultas\model\TipoIdentificacion.java
+C:\BOT\Repositorios\consultas\src\main\java\com\bot\consultas\modelDTO\ClienteDTO.java
+C:\BOT\Repositorios\consultas\src\main\java\com\bot\consultas\modelDTO\EntidadFinancieraDTO.java
+C:\BOT\Repositorios\consultas\src\main\java\com\bot\consultas\modelDTO\TipoIdentificacionDTO.java
+C:\BOT\Repositorios\consultas\src\main\java\com\bot\consultas\repository\ClienteRepository.java
+C:\BOT\Repositorios\consultas\src\main\java\com\bot\consultas\service\ClienteService.java

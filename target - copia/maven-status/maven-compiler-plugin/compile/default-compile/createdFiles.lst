@@ -1,0 +1,15 @@
+com\bot\consultas\mapper\ClienteMapperImpl.class
+com\bot\consultas\mapper\ClienteMapper.class
+com\bot\consultas\model\TipoIdentificacion.class
+com\bot\consultas\model\enums\EnumEstadoEntidad.class
+com\bot\consultas\repository\ClienteRepository.class
+com\bot\consultas\config\TestDialect.class
+com\bot\consultas\modelDTO\ClienteDTO.class
+com\bot\consultas\modelDTO\EntidadFinancieraDTO.class
+com\bot\consultas\model\EntidadFinanciera.class
+com\bot\consultas\model\Cliente.class
+com\bot\consultas\model\enums\EnumTipoCliente.class
+com\bot\consultas\ConsultasApplication.class
+com\bot\consultas\modelDTO\TipoIdentificacionDTO.class
+com\bot\consultas\controller\ClienteController.class
+com\bot\consultas\service\ClienteService.class
