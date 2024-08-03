@@ -60,11 +60,21 @@ public class ClienteController {
         return ResponseEntity.ok(testOutput);
     }*/
 
-    @GetMapping("/paginados")
+    @GetMapping("/clientes")
     public Page<ClienteDTO> obtenerClientesPaginados(
         @RequestParam(defaultValue = "0") int page,
         @RequestParam(defaultValue = "10") int size) {
         return clienteService.obtenerClientesPaginados(page, size);
+    }
+
+    @GetMapping("/clientesCriteria")
+    public ResponseEntity<Page<ClienteDTO>> getClientesPaginated(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size,
+            @RequestParam(required = false) String nombre,
+            @RequestParam(required = false) String descripcionTipoIdentificacion) {
+        Page<ClienteDTO> clientes = clienteService.obtenerClientesPaginadosConCriteria(page, size, nombre, descripcionTipoIdentificacion);
+        return ResponseEntity.ok(clientes);
     }
 
     // Otros endpoints...
