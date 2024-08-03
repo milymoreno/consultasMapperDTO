@@ -3,15 +3,11 @@ package com.bot.consultas.modelDTO;
 import com.bot.consultas.model.enums.EnumEstadoEntidad;
 import com.bot.consultas.model.enums.EnumTipoCliente;
 import lombok.Data;
-//import lombok.Getter;
-//import lombok.Setter;
 
-//@Getter
-//@Setter
 
 @Data
 public class ClienteDTO {
-    private static final long serialVersionUID = 1L;
+    //private static final long serialVersionUID = 1L;
 
     private Long id;
     private String numeroIdentificacion;
