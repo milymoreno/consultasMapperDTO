@@ -53,17 +53,17 @@ public class ClienteController {
         return clienteService.obtenerClientesPaginados(page, size);
     }
 
-    /*@GetMapping("/clientesCriteria")
-    public ResponseEntity<Page<ClienteDTO>> getClientesPaginated(
+    @GetMapping("/clientesCriteriaNativo")
+    public ResponseEntity<Page<ClienteDTO>> getClientesPaginatedNativo(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size,
             @RequestParam(required = false) String nombre,
             @RequestParam(required = false) String descripcionTipoIdentificacion) {
         Page<ClienteDTO> clientes = clienteService.obtenerClientesPaginadosConCriteria(page, size, nombre, descripcionTipoIdentificacion);
         return ResponseEntity.ok(clientes);
-    }*/
+    }
 
-    //cliente paginados con page y respuest personalizada
+    //clientes paginados con page y respuest personalizada
     @GetMapping("/clientesCriteria")
     public ResponseEntity<ClienteResponse> getClientesPaginated(
             @RequestParam(defaultValue = "0") int page,
