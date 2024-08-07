@@ -84,7 +84,7 @@ public class ClienteService {
         CriteriaQuery<Long> countQuery = criteriaBuilder.createQuery(Long.class);
         Root<Cliente> countRoot = countQuery.from(Cliente.class);
         countQuery.select(criteriaBuilder.count(countRoot));
-        
+
         // Filtros para contar el número total de registros
         if (nombre != null && !nombre.isEmpty()) {
             countQuery.where(criteriaBuilder.like(countRoot.get("nombre"), "%" + nombre + "%"));

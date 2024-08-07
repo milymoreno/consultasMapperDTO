@@ -1,6 +1,7 @@
 package com.bot.consultas.controller;
 
 import com.bot.consultas.modelDTO.ClienteDTO;
+import com.bot.consultas.response.ClienteResponse;
 import com.bot.consultas.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -10,6 +11,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.bot.consultas.response.ClienteResponse;
 
 //import com.bot.consultas.model.Cliente;
 
@@ -44,22 +46,6 @@ public class ClienteController {
         return ResponseEntity.ok(clienteDTO);
     }
 
-    /*@GetMapping("/clientes/{id}/test")
-    public ResponseEntity<String> testClienteGetters(@PathVariable Long id) {
-        Cliente cliente = clienteService.getClienteById(id); // Asumiendo que tienes un método para obtener el cliente
-        if (cliente == null) {
-            return ResponseEntity.notFound().build();
-        }
-        // Ejemplo de uso de getters
-        /*String testOutput = String.format(
-            "ID: %d, Nombre: %s, Apellido1: %s",
-            cliente.getId(),
-            cliente.getNombre(),
-            cliente.getApellido1()
-        );
-        return ResponseEntity.ok(testOutput);
-    }*/
-
     @GetMapping("/clientes")
     public Page<ClienteDTO> obtenerClientesPaginados(
         @RequestParam(defaultValue = "0") int page,
@@ -67,7 +53,7 @@ public class ClienteController {
         return clienteService.obtenerClientesPaginados(page, size);
     }
 
-    @GetMapping("/clientesCriteria")
+    /*@GetMapping("/clientesCriteria")
     public ResponseEntity<Page<ClienteDTO>> getClientesPaginated(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size,
@@ -75,6 +61,26 @@ public class ClienteController {
             @RequestParam(required = false) String descripcionTipoIdentificacion) {
         Page<ClienteDTO> clientes = clienteService.obtenerClientesPaginadosConCriteria(page, size, nombre, descripcionTipoIdentificacion);
         return ResponseEntity.ok(clientes);
+    }*/
+
+    //cliente paginados con page y respuest personalizada
+    @GetMapping("/clientesCriteria")
+    public ResponseEntity<ClienteResponse> getClientesPaginated(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size,
+            @RequestParam(required = false) String nombre,
+            @RequestParam(required = false) String descripcionTipoIdentificacion) {
+
+        Page<ClienteDTO> clientesPage = clienteService.obtenerClientesPaginadosConCriteria(page, size, nombre, descripcionTipoIdentificacion);
+
+         // Construir la respuesta personalizada
+         ClienteResponse response = new ClienteResponse();
+         response.setMensaje("Operación exitosa");
+         response.setNroTotalRegistros(clientesPage.getTotalElements());
+         response.setExitoso(true);
+         response.setDatos(clientesPage.getContent()); 
+
+        return ResponseEntity.ok(response);
     }
 
     // Otros endpoints...
