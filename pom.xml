@@ -22,18 +22,14 @@
     </properties>
 
     <dependencies>
-
-               <!-- Dependencies for testing -->
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-junit-jupiter</artifactId>
-            <version>5.12.0</version>
-        </dependency>
+        <!-- Dependencies for testing -->
+        <!--        
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
             <version>5.12.0</version>
         </dependency>
+        -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
@@ -48,6 +44,12 @@
             <groupId>org.junit.platform</groupId>
             <artifactId>junit-platform-launcher</artifactId>
             <scope>test</scope>
+        </dependency>
+        <!-- Spring Boot Test Starter trae a mockito-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>            
         </dependency>
 
         <!-- Jackson Dependencies -->
@@ -95,22 +97,35 @@
             <version>2.6.0</version>
         </dependency>
 
-        <!-- Hibernate Dependencies -->
+        <!-- Hibernate Dependencies 
+         No hace falta porque  el spring-boot-starter-data-jpa 
+         ya tiene el core de hibernate  6.5.2.Final
         <dependency>
             <groupId>org.hibernate.orm</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>6.2.0.Final</version>
         </dependency>
+        -->
         <dependency>
             <groupId>org.hibernate.orm</groupId>
             <artifactId>hibernate-community-dialects</artifactId>
-            <version>6.2.0.Final</version>
-        </dependency>
+            <version>6.5.2.Final</version>
+        </dependency>        
 
         <!-- Spring Boot Starters -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <!-- no hace falta porque incluì la version de community dialect con la misma version 
+             del core hibernate que viene spring-boot-starter-data-jpa
+            <exclusions>
+                    <exclusion>
+                        <groupId>org.hibernate</groupId>
+                        <artifactId>hibernate-core</artifactId>
+                        <version>6.5.2.Final</version>
+                    </exclusion>
+            </exclusions>
+            -->
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -132,18 +147,7 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- Spring Boot Test Starter -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.junit.vintage</groupId>
-                    <artifactId>junit-vintage-engine</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+        
     </dependencies>
 
     <build>

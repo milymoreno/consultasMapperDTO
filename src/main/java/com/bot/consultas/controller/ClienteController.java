@@ -11,9 +11,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.bot.consultas.response.ClienteResponse;
-
-//import com.bot.consultas.model.Cliente;
 
 @RestController
 @RequestMapping("/clientes")
